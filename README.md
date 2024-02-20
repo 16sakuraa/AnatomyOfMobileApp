@@ -1,2 +1,2 @@
 ## Anatomy Of Mobile App
-This repository is about me studying ReactNative
+This repository is about me studying ReactNative. WIP.

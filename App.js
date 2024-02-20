@@ -1,54 +1,16 @@
 import { StatusBar } from 'expo-status-bar';
 import { useDimensions, useDeviceOrientation} from '@react-native-community/hooks';
-import { StyleSheet, Dimensions, Text, View, TouchableNativeFeedback, Button, Image, Alert, SafeAreaView,Platform} from 'react-native';
+import WelcomeScreen from './screen/WelcomeScreen.js';
+import { StyleSheet, Dimensions, Text, View, TouchableNativeFeedback, Button, Image, Alert, SafeAreaView,Platform, ImageBackground} from 'react-native';
 
 export default function App() {
   console.log(useDeviceOrientation())
   const {landscape} = useDeviceOrientation();
+  const bgImage = require("./assets/background.jpg");
+  const logo = require("./assets/logo-red.png");
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={{
-        backgroundColor: '#fff',
-        flex : 1,
-      }}>
-        <View style={{
-          backgroundColor:'dodgerblue',
-          flex : 2,
-        }}/>
-        <View style={{
-          backgroundColor:'gold',
-          flex : 1,
-        }}/>
-        <View style={{
-          backgroundColor:'tomato',
-          flex : 1,
-        }}/>
-      </View>
-      {/* <Button 
-        color="orange"
-        title="Click Me"
-        onPress={() => 
-          Alert.alert("My Title","This is my message.",[
-          {text:"Yes", onPress: () => console.log("Yes")},
-          {text:"No", onPress: () => console.log("No")},
-          ])
-        }/> */}
-      {/* <Text>Hello, This is my first ReactNative project. I'm sooooooo excited!</Text>
-      <TouchableNativeFeedback onPress={()=> console.log("Image Tab!")}>
-        <View style={{width:200,height:70,backgroundColor: "blue"}}></View>
-        <Image 
-        fadeDuration={300}
-        source={{
-          width:200,
-          height:300,
-          uri: "https://picsum.photos/200/300",
-          }}
-        />
-
-      </TouchableNativeFeedback> */}
+    <WelcomeScreen></WelcomeScreen>
       
-      <StatusBar style="auto" />
-    </SafeAreaView>
   );
 }
 
@@ -56,7 +18,23 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    // alignItems: 'center',
-    // justifyContent: 'center',
   },
+  bgImage : {
+    flex: 1,
+    alignItems: 'center',
+  },
+
+  text: {
+    color: 'white',
+    fontSize: 42,
+    lineHeight: 84,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    backgroundColor: '#000000c0',
+  },
+
+  logo : {
+    width: 100,
+    height: 100,
+  }
 });

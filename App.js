@@ -1,15 +1,32 @@
 import { StatusBar } from 'expo-status-bar';
 import { useDimensions, useDeviceOrientation} from '@react-native-community/hooks';
 import WelcomeScreen from './screen/WelcomeScreen.js';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import { StyleSheet, Dimensions, Text, View, TouchableNativeFeedback, Button, Image, Alert, SafeAreaView,Platform, ImageBackground} from 'react-native';
+import MainPage from './screen/MainPage.js';
 
 export default function App() {
   console.log(useDeviceOrientation())
+  const Stack = createNativeStackNavigator();
   const {landscape} = useDeviceOrientation();
   const bgImage = require("./assets/background.jpg");
   const logo = require("./assets/logo-red.png");
+  
   return (
-    <WelcomeScreen></WelcomeScreen>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Welcome"
+          component={WelcomeScreen}
+          // options={{title: 'Welcome'}}
+        />
+        <Stack.Screen 
+          name="Main" 
+          component={MainPage} />
+      </Stack.Navigator>
+    </NavigationContainer>
+    
       
   );
 }

@@ -1,15 +1,14 @@
-import  { View, ImageBackground, StyleSheet, Image,Text ,Button} from 'react-native';
+import React from 'react';
+import { View, ImageBackground, StyleSheet, Image, Text, Button } from 'react-native';
 
-
-
-function MainPage(props) {
+function MainPage({ navigation }) {
     const bg = require("../assets/blossombg.jpg")
     return (
     <ImageBackground
-        styles={styles.background}
+        style={styles.background}
         source={bg}  
     >
-        <Button title="Button" onPress={()=> console.log('button tapped')}/>
+        <Button title="Button" onPress={() => [navigation.navigate('Welcome'),console.log("tapped")]}/>
     </ImageBackground>
     );
 };

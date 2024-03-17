@@ -1,17 +1,41 @@
 import React from 'react';
 import { View, ImageBackground, StyleSheet, Image, Text, Button } from 'react-native';
+import { ImageSlider } from "react-native-image-slider-banner";
 
 function WelcomeScreen({ navigation }) {
     const bgImage = require("../assets/background.jpg");
-    const logo = require("../assets/logo-red.png");
+    const star = require("../assets/starlogo.png");
+    const gradientBG = require("../assets/gradient.png");
+    const notiIcon = require("../assets/notification.png");
 
     return (
         <ImageBackground 
             style={styles.background}
             source={bgImage}>
-            <View style={styles.logoContainer}>
-                <Image style={styles.logo} source={logo} />
-                <Text>Sell what you don't need</Text>
+            <ImageBackground style={styles.gradient} source={gradientBG}>
+                <View style={styles.logoContainer}>
+                    <Image style={styles.logo} source={star} />
+                    <Text style={styles.titleText}>Fiestasy</Text>
+                </View>
+                <View>
+                    <Image style={styles.noti} source={notiIcon} />
+                </View>
+                <View>
+                <ImageSlider style={styles.banner}
+                    data={[
+                        {img: 'https://img2.pic.in.th/pic/image-frame.png'},
+                        {img: 'https://img2.pic.in.th/pic/image-frame.png'},
+                        {img: 'https://img2.pic.in.th/pic/image-frame.png'}
+                    ]}
+                    autoPlay={false}
+                    onItemChanged={(item) => console.log("item", item)}
+                    closeIconColor="#fff"
+                />
+                </View>
+            </ImageBackground>
+            
+            <View>
+                <Text>Hello</Text>
             </View>
 
             <View style={styles.loginButton}>
@@ -32,7 +56,7 @@ const styles = StyleSheet.create({
     background: {
         flex: 1,
         justifyContent: 'flex-end',
-        alignItems: 'center',
+        alignItems: 'left',
     },
     loginButton:{
         width: '100%',
@@ -49,13 +73,41 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     logo:{
-        width: 100,
-        height: 100,
+        width: 30,
+        height: 30,
+        marginTop:5,
+        top:30,
+        position:'absolute',
     },
     logoContainer:{
-        position: 'absolute',
-        top: 70,
+        marginTop: 70,
+        marginLeft:20,
+        flexDirection: 'row',
         alignItems: 'center',
+    },
+    titleText:{
+        marginLeft: 35,
+        fontSize: 25,
+        top:30,
+        fontWeight: 'bold',
+    },
+    gradient:{
+        position: 'absolute',
+        height:370,
+        top:-50,
+        width: '100%',
+    },
+
+    noti:{
+        position: 'absolute',
+        marginLeft: 325,
+        width: 35,
+        height: 35,
+    },
+    banner:
+    {
+        top:-20,
+        height: 40,
     }
 });
 

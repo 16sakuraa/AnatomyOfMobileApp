@@ -34,8 +34,8 @@ function WelcomeScreen({ navigation }) {
                 </View>
             </ImageBackground>
             
-            <View>
-                <Text>Hello</Text>
+            <View styles={styles.categories}>
+                <Text styles={styles.categoryText}>Categories</Text>
             </View>
 
             <View style={styles.loginButton}>
@@ -108,6 +108,17 @@ const styles = StyleSheet.create({
     {
         top:-20,
         height: 40,
+    },
+    categories:{
+        position:'absolute',
+        top:70,
+    },
+    categoryText:
+    {
+        marginLeft: 35,
+        fontSize: 25,
+        
+        fontWeight: 'bold',
     }
 });
 

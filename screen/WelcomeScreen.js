@@ -12,6 +12,9 @@ function WelcomeScreen({ navigation }) {
     const myevent = require("../assets/myevent.png");
     const commu = require("../assets/commu.png");
     const profile = require("../assets/profile.png");
+    const event1 = require("../assets/event1.png");
+    const card = require("../assets/card.png");
+    const cardBG = require("../assets/cardBGnew.png")
 
 
     const [activeButton, setActiveButton] = useState('All');
@@ -25,11 +28,15 @@ function WelcomeScreen({ navigation }) {
                     <Image style={styles.logo} source={star} />
                     <Text style={styles.titleText}>Fiestasy</Text>
                 </View>
+                <Pressable onPress={() => [navigation.navigate('Main'),console.log("tapped")]}>
+                    <Image style={styles.noti} source={notiIcon}  />
+                    </Pressable>
                 <View>
-                    <Image style={styles.noti} source={notiIcon} onPress={() => [navigation.navigate('Main'),console.log("tapped")]} />
+                <View style={styles.header}>
+                    <Text style={styles.headerText}>Popular Event</Text>
                 </View>
-                <View>
-                <ImageSlider style={styles.banner}
+                <View style={styles.banner} >
+                <ImageSlider
                     data={[
                         {img: 'https://img2.pic.in.th/pic/image-frame.png'},
                         {img: 'https://img2.pic.in.th/pic/image-frame.png'},
@@ -39,6 +46,7 @@ function WelcomeScreen({ navigation }) {
                     onItemChanged={(item) => console.log("item", item)}
                     closeIconColor="#fff"
                 />
+                </View>
                 </View>
                 <View style={styles.categories}>
                     <Text style={styles.categoryText}>Categories</Text>
@@ -69,16 +77,64 @@ function WelcomeScreen({ navigation }) {
                     </Pressable>
                 </View>
 
+                <SafeAreaView style={styles.container}>
+                    <ScrollView style={styles.scrollView}>
+
+                        <View style={styles.card}>
+                            <View style={styles.cardImage}>
+                                <Image style={styles.cardBG} source={cardBG} />
+                                <Image style={styles.eventCard} source={event1} />
+                                <Image style={styles.eventCardTrans} source={card} />
+                                
+                            </View>
+                            <View>
+                                <Text style={styles.cardText}>Prince Euthalia's falling i...</Text>
+                            </View>
+
+                        </View>
+
+                        <View style={styles.card}>
+                            <View style={styles.cardImage}>
+                                <Image style={styles.cardBG} source={cardBG} />
+                                <Image style={styles.eventCard} source={event1} />
+                                <Image style={styles.eventCardTrans} source={card} />
+                                
+                            </View>
+                            <View>
+                                <Text style={styles.cardText}>Prince Euthalia's falling i...</Text>
+                            </View>
+
+                        </View>
+
+                        <View style={styles.card}>
+                            <View style={styles.cardImage}>
+                                <Image style={styles.cardBG} source={cardBG} />
+                                <Image style={styles.eventCard} source={event1} />
+                                <Image style={styles.eventCardTrans} source={card} />
+                                
+                            </View>
+                            <View>
+                                <Text style={styles.cardText}>Prince Euthalia's falling i...</Text>
+                            </View>
+
+                        </View>
+
+
+                        {/* <Text style={styles.testtext}>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+                        minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                        aliquip ex ea commodo consequat. Duis aute irure dolor in
+                        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                        culpa qui officia deserunt mollit anim id est laborum.
+                        </Text> */}
+                    </ScrollView>
+                </SafeAreaView>
+
                
             </ImageBackground>
- 
 
-            {/* <View style={styles.loginButton}>
-                <Button 
-                    title="Login"
-                    onPress={() => [navigation.navigate('Main'),console.log("tapped")]} // Navigate to 'Main' screen
-                />
-            </View> */}
 
             <View style={styles.navBar}>
                 <View style={styles.navBarItem}>
@@ -128,7 +184,7 @@ const styles = StyleSheet.create({
         width: 30,
         height: 30,
         marginTop:5,
-        top:30,
+        top:10,
         position:'absolute',
     },
     logoContainer:{
@@ -140,13 +196,13 @@ const styles = StyleSheet.create({
     titleText:{
         marginLeft: 35,
         fontSize: 25,
-        top:30,
+        top:10,
         fontWeight: 'bold',
     },
     gradient:{
         position: 'absolute',
-        height:370,
-        top:-50,
+        height:380,
+        top:-40,
         width: '100%',
     },
 
@@ -154,16 +210,17 @@ const styles = StyleSheet.create({
         position: 'absolute',
         marginLeft: 325,
         width: 35,
+        top:-20,
         height: 35,
     },
     banner:
     {
-        top:-20,
-        height: 40,
+        top:-30
+        
     },
     categories:{
         position:'absolute',
-        top:70,
+        top:75,
     },
     categoryText:
     {
@@ -182,7 +239,7 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: '#fff',
         textAlign: 'center',
-        top:15,
+        top:-15,
         alignSelf: 'baseline',
         flexDirection: 'row',
     },
@@ -196,7 +253,7 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: '#fff',
         textAlign: 'center',
-        top:15,
+        top:-15,
         alignSelf: 'baseline',
         flexDirection: 'row',
     },
@@ -218,8 +275,9 @@ const styles = StyleSheet.create({
     buttonContainer: {
         marginLeft: 20,
         flexDirection:'row',
-
-        
+    },
+    container:{
+        backgroundColor:'blue'
     },
     navBar: {
         width: '100%',
@@ -239,6 +297,53 @@ const styles = StyleSheet.create({
     navBarText:{
         color: '#7766C6',
         fontWeight: 'bold',
+    },
+    testtext: {
+        color:'black',
+        fontSize:42,
+    },
+    scrollView: {
+        top: 0,
+    },
+    card:{
+        flexDirection:'column',
+        height:330,
+        elevation: 5, // Add elevation for drop shadow effect
+        shadowColor: '#000', // Specify shadow color (optional)
+        shadowOffset: { width: 0, height: 2 }, // Specify shadow offset (optional)
+        shadowOpacity: 0.25, // Specify shadow opacity (optional)
+        shadowRadius: 3, // Specify shadow radius (optional)
+    },
+    header:{
+        top:15,
+        marginLeft:20,
+    },
+    headerText:{
+        fontWeight:'bold',
+        fontSize:30,
+    },
+    cardText:{
+        position:'absolute',
+        fontWeight:'bold',
+        fontSize:25,
+        left:40,
+        top:-20
+    },
+    cardImage:{
+        flexDirection:'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    cardBG:{
+        position:'absolute',
+        top:20,
+    },
+    eventCardTrans:{
+        flexDirection:'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        position:'absolute'
+
     }
 });
 

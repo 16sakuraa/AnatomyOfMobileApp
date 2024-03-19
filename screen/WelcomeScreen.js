@@ -15,6 +15,11 @@ function WelcomeScreen({ navigation }) {
     const event1 = require("../assets/event1.png");
     const card = require("../assets/card.png");
     const cardBG = require("../assets/cardBGnew.png")
+    const locationIcon = require("../assets/location.png")
+    const timeIcon = require("../assets/time.png")
+    const calendarIcon = require("../assets/calendar.png")
+    const event2 = require("../assets/if9.png")
+    const event3 = require("../assets/comicsquare.png")
 
 
     const [activeButton, setActiveButton] = useState('All');
@@ -77,9 +82,10 @@ function WelcomeScreen({ navigation }) {
                     </Pressable>
                 </View>
 
-                <SafeAreaView style={styles.container}>
+                <SafeAreaView style={{ height:'100%' }}>
                     <ScrollView style={styles.scrollView}>
 
+                    <Pressable onPress={() => [navigation.navigate('event1'),console.log("tapped")]}>
                         <View style={styles.card}>
                             <View style={styles.cardImage}>
                                 <Image style={styles.cardBG} source={cardBG} />
@@ -87,48 +93,91 @@ function WelcomeScreen({ navigation }) {
                                 <Image style={styles.eventCardTrans} source={card} />
                                 
                             </View>
-                            <View>
+                            <View style={styles.cardTextContainer}>
                                 <Text style={styles.cardText}>Prince Euthalia's falling i...</Text>
+                                <View style={styles.sub}>
+                                
+                                        <Image style={styles.logoText} source={calendarIcon} />
+                                        <Text style={styles.subText}>06/04/2024</Text>
+                                        <View style={ {left:10 ,flexDirection:'row'}}>
+                                        <Image style={styles.logoText} source={timeIcon} />
+                                        <Text style={styles.subText}>10:00-17:30</Text>
+                                        </View>
+    
+                                </View>
+                                <View style={styles.sub}>
+                                    <Image style={styles.logoText} source={locationIcon} />
+                                    <Text style={styles.subText}>TOASTO cafe & bakery</Text>
+                                </View>
                             </View>
+                        </View>
+                    </Pressable>
 
+                        <View style={styles.card}>
+                            <View style={styles.cardImage}>
+                                <Image style={styles.cardBG} source={cardBG} />
+                                <Image style={styles.eventCard} source={event2} />
+                                <Image style={styles.eventCardTrans} source={card} />
+                                
+                            </View>
+                            <View style={styles.cardTextContainer}>
+                                <Text style={styles.cardText}>IF#9 ก่อร่างสร้างเส้น</Text>
+                                <View style={styles.sub}>
+                                
+                                        <Image style={styles.logoText} source={calendarIcon} />
+                                        <Text style={styles.subText}>06/04/2024</Text>
+                                        <View style={ {left:10 ,flexDirection:'row'}}>
+                                        <Image style={styles.logoText} source={timeIcon} />
+                                        <Text style={styles.subText}>10:00-18:00</Text>
+                                        </View>
+    
+                                </View>
+                                <View style={styles.sub}>
+                                    <Image style={styles.logoText} source={locationIcon} />
+                                    <Text style={styles.subText}>BACC Hall</Text>
+                                </View>
+                            </View>
                         </View>
 
                         <View style={styles.card}>
                             <View style={styles.cardImage}>
                                 <Image style={styles.cardBG} source={cardBG} />
-                                <Image style={styles.eventCard} source={event1} />
+                                <Image style={styles.eventCard} source={event3} />
                                 <Image style={styles.eventCardTrans} source={card} />
                                 
                             </View>
-                            <View>
-                                <Text style={styles.cardText}>Prince Euthalia's falling i...</Text>
-                            </View>
-
-                        </View>
-
-                        <View style={styles.card}>
-                            <View style={styles.cardImage}>
-                                <Image style={styles.cardBG} source={cardBG} />
-                                <Image style={styles.eventCard} source={event1} />
-                                <Image style={styles.eventCardTrans} source={card} />
+                            <View style={styles.cardTextContainer}>
+                                <Text style={styles.cardText}>Comic Square #7</Text>
+                                <View style={styles.sub}>
                                 
-                            </View>
-                            <View>
-                                <Text style={styles.cardText}>Prince Euthalia's falling i...</Text>
+                                        <Image style={styles.logoText} source={calendarIcon} />
+                                        <Text style={styles.subText}>06/04/2024</Text>
+                                        <View style={ {left:10 ,flexDirection:'row'}}>
+                                        <Image style={styles.logoText} source={timeIcon} />
+                                        <Text style={styles.subText}>10:00-18:00</Text>
+                                        </View>
+    
+                                </View>
+                                <View style={styles.sub}>
+                                    <Image style={styles.logoText} source={locationIcon} />
+                                    <Text style={styles.subText}>BACC Hall</Text>
+                                </View>
                             </View>
 
+                            
                         </View>
 
 
-                        {/* <Text style={styles.testtext}>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                        minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                        aliquip ex ea commodo consequat. Duis aute irure dolor in
-                        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                        culpa qui officia deserunt mollit anim id est laborum.
-                        </Text> */}
+                    
+
+                        <View style={styles.seeMore}>
+                            <Text style={styles.testtext}>
+                            See More
+                            </Text>
+                        </View>
+                        <Text style={styles.testtext}>
+                        seeeeeeeeeeeeeeeeeee
+                        </Text>
                     </ScrollView>
                 </SafeAreaView>
 
@@ -231,7 +280,7 @@ const styles = StyleSheet.create({
     },
     Allbutton: {
         marginRight:5,        
-        paddingHorizontal: 20, // Adjust this value as needed 
+        paddingHorizontal: 20,
         paddingTop: 7,
         paddingBottom: 7,
         backgroundColor: '#7766C6',
@@ -245,7 +294,7 @@ const styles = StyleSheet.create({
     },
     AllbuttonUnclicked: {
         marginRight:5,        
-        paddingHorizontal: 20, // Adjust this value as needed 
+        paddingHorizontal: 20,
         paddingTop: 7,
         paddingBottom: 7,
         backgroundColor: '#E0DFFD',
@@ -276,9 +325,7 @@ const styles = StyleSheet.create({
         marginLeft: 20,
         flexDirection:'row',
     },
-    container:{
-        backgroundColor:'blue'
-    },
+
     navBar: {
         width: '100%',
         height: 70,
@@ -299,35 +346,53 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
     testtext: {
+        fontWeight:'bold',
         color:'black',
-        fontSize:42,
+        fontSize:37,
+        marginBottom:15,
     },
     scrollView: {
+        flexDirection:'column',
+        backgroundColor:'#F8F2FB',
         top: 0,
     },
     card:{
         flexDirection:'column',
-        height:330,
-        elevation: 5, // Add elevation for drop shadow effect
-        shadowColor: '#000', // Specify shadow color (optional)
-        shadowOffset: { width: 0, height: 2 }, // Specify shadow offset (optional)
-        shadowOpacity: 0.25, // Specify shadow opacity (optional)
-        shadowRadius: 3, // Specify shadow radius (optional)
+        height:220,
+        marginBottom: 10,
+        
     },
     header:{
         top:15,
         marginLeft:20,
     },
+    seeMore:{
+        alignItems:'center',
+        justifyContent:'center',
+    },  
     headerText:{
         fontWeight:'bold',
         fontSize:30,
     },
     cardText:{
-        position:'absolute',
+
         fontWeight:'bold',
         fontSize:25,
+
+
+    },
+    subText:{
+        fontSize:15,
+
+    },
+    cardTextContainer:{
         left:40,
-        top:-20
+    },
+    sub:{
+        flexDirection:'row',
+        width:'auto',
+        top:5,
+
     },
     cardImage:{
         flexDirection:'column',

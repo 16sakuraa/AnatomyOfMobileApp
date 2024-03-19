@@ -47,10 +47,11 @@ const styles = StyleSheet.create({
         backgroundColor:'blue'
     },
     logo:{
-        width: 30,
-        height: 30,
-        top:20,
+        width: 40,
+        height: 40,
+        top:40,
         position:'absolute',
+        left:20,
     },
 })
 

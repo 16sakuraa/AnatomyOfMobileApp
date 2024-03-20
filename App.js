@@ -1,7 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
 import { useDimensions, useDeviceOrientation} from '@react-native-community/hooks';
 import WelcomeScreen from './screen/WelcomeScreen.js';
-import event1 from './screen/event1.js';
+import Community from './screen/Community.js';
+import MyEvent from './screen/MyEvent.js';
+import Event1 from './screen/Event1.js';
+import Chat from './screen/Chat.js';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import { StyleSheet, Dimensions, Text, View, TouchableNativeFeedback, Button, Image, Alert, SafeAreaView,Platform, ImageBackground} from 'react-native';
@@ -30,8 +33,17 @@ export default function App() {
           name="Main" 
           component={MainPage} />
           <Stack.Screen 
-          name="event1" 
-          component={event1} />
+          name="Event1" 
+          component={Event1} />
+          <Stack.Screen 
+          name="MyEvent" 
+          component={MyEvent} />
+          <Stack.Screen 
+          name="Community" 
+          component={Community} />
+          <Stack.Screen 
+          name="Chat" 
+          component={Chat} />
       </Stack.Navigator>
       
     </NavigationContainer>

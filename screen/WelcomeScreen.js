@@ -8,6 +8,10 @@ function WelcomeScreen({ navigation }) {
     const notiIcon = require("../assets/notification.png");
     const allIcon = require("../assets/allicon.png");
     const artIcon = require("../assets/articon.png");
+    const unartIcon = require("../assets/artUnclicked.png");
+    const danceIcon = require("../assets/dance.png");
+    const undanceIcon = require("../assets/danceUnclick.png");
+    const unallIcon = require("../assets/unall.png");
     const exploreIcon = require("../assets/exploreIcon.png");
     const myevent = require("../assets/myevent.png");
     const commu = require("../assets/commu.png");
@@ -20,6 +24,10 @@ function WelcomeScreen({ navigation }) {
     const calendarIcon = require("../assets/calendar.png")
     const event2 = require("../assets/if9.png")
     const event3 = require("../assets/comicsquare.png")
+
+    const banner1 = require("../assets/event1banner.png")
+    const banner2 = require("../assets/event2banner.png")
+    const banner = require("../assets/event3banner.png")
 
 
     const [activeButton, setActiveButton] = useState('All');
@@ -63,21 +71,21 @@ function WelcomeScreen({ navigation }) {
                         style={activeButton === 'All' ? styles.Allbutton : styles.AllbuttonUnclicked}
                         onPress={() => setActiveButton('All')}
                     >
-                        <Image style={styles.logoText} source={allIcon} />
+                        <Image style={styles.logoText} source={activeButton === 'All' ? allIcon : unallIcon} />
                         <Text style={activeButton === 'All' ? styles.text : styles.textUnclicked}>All</Text>
                     </Pressable>
                     <Pressable
                         style={activeButton === 'Art' ? styles.Allbutton : styles.AllbuttonUnclicked}
                         onPress={() => setActiveButton('Art')}
                     >
-                        <Image style={styles.logoText} source={artIcon} />
+                        <Image style={styles.logoText} source={activeButton === 'Art' ? unartIcon : artIcon} />
                         <Text style={activeButton === 'Art' ? styles.text : styles.textUnclicked}>Art</Text>
                     </Pressable>
                     <Pressable
                         style={activeButton === 'Dance' ? styles.Allbutton : styles.AllbuttonUnclicked}
                         onPress={() => setActiveButton('Dance')}
                     >
-                        <Image style={styles.logoText} source={artIcon} />
+                        <Image style={styles.logoText} source={activeButton === 'Dance' ? undanceIcon : danceIcon} />
                         <Text style={activeButton === 'Dance' ? styles.text : styles.textUnclicked}>Dance</Text>
                     </Pressable>
                 </View>
@@ -85,7 +93,7 @@ function WelcomeScreen({ navigation }) {
                 <SafeAreaView style={{ height:'100%' }}>
                     <ScrollView style={styles.scrollView}>
 
-                    <Pressable onPress={() => [navigation.navigate('event1'),console.log("tapped")]}>
+                    <Pressable onPress={() => [navigation.navigate('Event1'),console.log("tapped")]}>
                         <View style={styles.card}>
                             <View style={styles.cardImage}>
                                 <Image style={styles.cardBG} source={cardBG} />
@@ -190,14 +198,16 @@ function WelcomeScreen({ navigation }) {
                     <Image source={exploreIcon} />
                     <Text style={styles.navBarText}>Explore</Text>
                 </View>
-                <View style={styles.navBarItem}>
+                <Pressable style={styles.navBarItem} onPress={() => [navigation.navigate('MyEvent'),console.log("tapped")]}>
+
                     <Image source={myevent} />
                     <Text style={styles.navBarText}>My Event</Text>
-                </View>
-                <View style={styles.navBarItem}>
+
+                </Pressable>
+                <Pressable style={styles.navBarItem} onPress={() => [navigation.navigate('Community'),console.log("tapped")]}>
                     <Image source={commu} />
                     <Text style={styles.navBarText}>Community</Text>
-                </View>
+                </Pressable>
                 <View style={styles.navBarItem}>
                     <Image source={profile} />
                     <Text style={styles.navBarText}>Profile</Text>
